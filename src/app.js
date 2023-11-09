@@ -23,6 +23,7 @@ const config = require('../config');
 const accounts = require('../accounts');
 const serverChan = require('../serverChan');
 const telegramBot = require('../telegramBot');
+const sendEmail = require('../sendEmail')
 
 const client = superagent.agent();
 const headers = {
@@ -261,6 +262,7 @@ const pushTelegramBot = (title, desp) => {
 const push = (title, desp) => {
   pushServerChan(title, desp);
   pushTelegramBot(title, desp);
+  sendEmail(title, desp);
 }
 
 // 开始执行程序
